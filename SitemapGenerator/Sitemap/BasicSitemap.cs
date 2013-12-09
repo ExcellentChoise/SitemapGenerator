@@ -4,21 +4,22 @@ namespace SitemapGenerator.Sitemap
 {
     public class BasicSitemap : SitemapBase
     {
-        public BasicSitemap()
+        public BasicSitemap(string name, string rootUrl) 
+            : base(name, rootUrl)
         {
-            urls = new LinkedList<ISiteMapUrl>();
+            urls = new LinkedList<ISitemapUrl>();
         }
 
-        public override void Add(ISiteMapUrl sitemapUrl)
+        public override void Add(ISitemapUrl sitemapUrl)
         {
             urls.AddLast(sitemapUrl);
         }
 
-        public override IEnumerator<ISiteMapUrl> GetEnumerator()
+        public override IEnumerator<ISitemapUrl> GetEnumerator()
         {
             return urls.GetEnumerator();
         }
 
-        private readonly LinkedList<ISiteMapUrl> urls;
+        private readonly LinkedList<ISitemapUrl> urls;
     }
 }

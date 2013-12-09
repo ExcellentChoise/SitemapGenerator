@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,13 +42,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangeFrequency.cs" />
+    <Compile Include="EnumSerializer.cs" />
+    <Compile Include="FileSitemapWriter.cs" />
     <Compile Include="ISitemap.cs" />
+    <Compile Include="ISitemapBuilder.cs" />
+    <Compile Include="ISitemapIndex.cs" />
     <Compile Include="ISiteMapUrl.cs" />
+    <Compile Include="ISiteMapWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SiteMapUrl.cs" />
+    <Compile Include="SitemapStreamWriter.cs" />
     <Compile Include="Sitemap\BasicSitemap.cs" />
     <Compile Include="Sitemap\ConcurrentSitemap.cs" />
     <Compile Include="Sitemap\SitemapBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

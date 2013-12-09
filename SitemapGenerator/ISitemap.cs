@@ -2,8 +2,10 @@ using System.Collections.Generic;
 
 namespace SitemapGenerator
 {
-    public interface ISitemap : IEnumerable<ISiteMapUrl>
+    public interface ISitemap : IEnumerable<ISitemapUrl>
     {
-        void Add(ISiteMapUrl sitemapUrl);
+        void Add(ISitemapUrl sitemapUrl);
+        string Name { get; }
+        string RootUrl { get; }
     }
 }

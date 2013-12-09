@@ -5,21 +5,21 @@ namespace SitemapGenerator.Sitemap
 {
     public class ConcurrentSitemap : SitemapBase
     {
-        public ConcurrentSitemap()
+        public ConcurrentSitemap(string name, string rootUrl) : base(name, rootUrl)
         {
-            urls = new ConcurrentBag<ISiteMapUrl>();
+            urls = new ConcurrentBag<ISitemapUrl>();
         }        
 
-        public  override void Add(ISiteMapUrl sitemapUrl)
+        public  override void Add(ISitemapUrl sitemapUrl)
         {
             urls.Add(sitemapUrl);
         }
 
-        public override IEnumerator<ISiteMapUrl> GetEnumerator()
+        public override IEnumerator<ISitemapUrl> GetEnumerator()
         {
             return urls.GetEnumerator();
         }
 
-        private readonly ConcurrentBag<ISiteMapUrl> urls;
+        private readonly ConcurrentBag<ISitemapUrl> urls;
     }
 }

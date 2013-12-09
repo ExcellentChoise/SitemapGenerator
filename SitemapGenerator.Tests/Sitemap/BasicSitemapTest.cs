@@ -4,14 +4,14 @@ namespace SitemapGenerator.Tests.Sitemap
 {
     public class BasicSitemapTest : SitemapTestBase
     {
-        public override ISitemap CreateSitemap(params ISiteMapUrl[] urls)
+        public override ISitemap CreateSitemap(params ISitemapUrl[] urls)
         {
-            return new BasicSitemap();
+            return new BasicSitemap("basic", "http://www.google.com");
         }
 
-        public override ISiteMapUrl CreateSitemapUrl(string url)
+        public override ISitemapUrl CreateSitemapUrl(string url)
         {
-            return new SiteMapUrl(url);
+            return new SitemapUrl(url);
         }
     }
 }
