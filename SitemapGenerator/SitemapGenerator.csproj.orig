@@ -43,22 +43,20 @@
   <ItemGroup>
     <Compile Include="ChangeFrequency.cs" />
     <Compile Include="EnumSerializer.cs" />
-    <Compile Include="WritersFactory.cs" />
-    <Compile Include="Writers\FileSitemapWriter.cs" />
-    <Compile Include="Generator.cs" />
-    <Compile Include="Url\IIndexUrl.cs" />
-    <Compile Include="Writers\IndexStreamWriter.cs" />
-    <Compile Include="Url\IndexUrlBase.cs" />
-    <Compile Include="Sitemap\ISitemap.cs" />
-    <Compile Include="Url\ISitemapUrl.cs" />
-    <Compile Include="Url\IUrl.cs" />
-    <Compile Include="Writers\IUrlWriter.cs" />
+    <Compile Include="FileSitemapWriter.cs" />
+    <Compile Include="ISitemap.cs" />
+    <Compile Include="ISiteMapUrl.cs" />
+    <Compile Include="ISiteMapWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Url\SiteMapUrl.cs" />
-    <Compile Include="Writers\SitemapStreamWriter.cs" />
+<<<<<<< Updated upstream
+    <Compile Include="SiteMapUrl.cs" />
+    <Compile Include="SitemapStreamWriter.cs" />
     <Compile Include="Sitemap\BasicSitemap.cs" />
     <Compile Include="Sitemap\ConcurrentSitemap.cs" />
     <Compile Include="Sitemap\SitemapBase.cs" />
+=======
+    <Compile Include="SitemapStreamWriter.cs" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

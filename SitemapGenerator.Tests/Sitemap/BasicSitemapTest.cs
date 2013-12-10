@@ -1,4 +1,5 @@
 using SitemapGenerator.Sitemap;
+using SitemapGenerator.Url;
 
 namespace SitemapGenerator.Tests.Sitemap
 {

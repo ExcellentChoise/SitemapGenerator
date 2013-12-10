@@ -1,8 +1,8 @@
 using System;
 
-namespace SitemapGenerator
+namespace SitemapGenerator.Url
 {
-    public class SitemapUrl : IUrl
+    public class SitemapUrl : ISitemapUrl
     {
         public SitemapUrl(string url)
         {

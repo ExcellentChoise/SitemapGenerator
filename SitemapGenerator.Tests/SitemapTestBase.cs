@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using NUnit.Framework;
+using SitemapGenerator.Sitemap;
+using SitemapGenerator.Url;
 
 namespace SitemapGenerator.Tests
 {
