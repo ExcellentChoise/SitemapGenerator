@@ -19,22 +19,20 @@ namespace SitemapGenerator.Writers
         private void StartWriteSiteMap()
         {
             WriteHeaders();
+            totalEstimatedBytes += serviceFieldSizeBytes;
         }
 
-        public void FinishWriteMap()
-        {
-            WriteCloseTags();
-            writer.Flush();
-            writer.Close();
-        }
 
         public void WriteLocation(ISitemapUrl siteMapUrl)
         {
+            string fullUrl = rootUrl + "//" + siteMapUrl.Url;
             writer.WriteStartElement("url");
-            writer.WriteElementString("loc", rootUrl + "//" + siteMapUrl.Url);
+            writer.WriteElementString("loc", fullUrl);
             writer.WriteElementString("changefreq", EnumSerializer<ChangeFrequency>.ToString(siteMapUrl.FrequencyOfChange));
             writer.WriteElementString("lastmod", siteMapUrl.LastModifyDate.ToString("yyyy-MM-dd"));
             writer.WriteEndElement();
+            totalEstimatedBytes += singleUrlServiceInfoLength;
+            totalEstimatedBytes += fullUrl.Length;
         }
 
         private void WriteHeaders()
@@ -53,12 +51,15 @@ namespace SitemapGenerator.Writers
 
         public long GetTotalEstimatedBytes()
         {
-            return writer.BaseStream.Length + serviceFieldSizeBytes;
+            return totalEstimatedBytes;
         }
 
         private XmlTextWriter writer;
         private string rootUrl;
-        private long serviceFieldSizeBytes = 286; //TODO
+        private long serviceFieldSizeBytes = 512;
+        private long singleUrlServiceInfoLength = 115;
+        private long totalEstimatedBytes;
+
         private bool disposed;
 
         public void Dispose()
@@ -75,7 +76,9 @@ namespace SitemapGenerator.Writers
                 {
                 }
 
-                FinishWriteMap();
+                WriteCloseTags();
+                writer.Flush();
+                writer.Close();
                 disposed = true;
             }
         }

@@ -5,9 +5,9 @@ using SitemapGenerator.Writers;
 
 namespace SitemapGenerator
 {
-    public class Generator
+    public class SitemapGeneratorBase : ISitemapGenerator
     {
-        public Generator(string rootUrl, string baseDirPath, IUrlWriter<IIndexUrl> indexWriter)
+        public SitemapGeneratorBase(string rootUrl, string baseDirPath, IUrlWriter<IIndexUrl> indexWriter)
         {
             this.rootUrl = rootUrl;
             this.baseDirPath = baseDirPath;
@@ -15,12 +15,12 @@ namespace SitemapGenerator
             maxSitemapSizeBytes -= maxElemWithUri;
         }
 
-        public Generator(string rootUrl, string baseDirPath, IUrlWriter<IIndexUrl> indexWriter, string fileNamePattern, long maxSitemapSizeBytes, int writtenUrlsCount)
+        public SitemapGeneratorBase(string rootUrl, string baseDirPath, IUrlWriter<IIndexUrl> indexWriter, string fileNamePattern, long maxSitemapSizeBytes, int maxUrlsCountAtSingleMap)
             : this(rootUrl, baseDirPath, indexWriter)
         {
             this.fileNamePattern = fileNamePattern;
             this.maxSitemapSizeBytes = maxSitemapSizeBytes - maxElemWithUri;
-            this.writtenUrlsCount = writtenUrlsCount;
+            this.maxUrlsCount = maxUrlsCountAtSingleMap;
         }
 
         public void Start()
@@ -64,7 +64,7 @@ namespace SitemapGenerator
         private string fileNamePattern = "sitemap{0}.xml";
         private string baseDirPath;
         private string rootUrl;
-        private int maxElemWithUri = 369;
+        private int maxElemWithUri = 372;
         private long maxSitemapSizeBytes = 10 * 1024 * 1024;
         private int maxUrlsCount = 50000;
         private string currentFileName;

@@ -22,13 +22,6 @@ namespace SitemapGenerator.Writers
             WriteHeaders();
         }
 
-        private void FinishWriteMap()
-        {
-            WriteCloseTags();
-            indexWriter.Flush();
-            indexWriter.Close();
-        }
-
         public void WriteLocation(IIndexUrl indexUrl)
         {
             lock (lockObject)
@@ -61,7 +54,7 @@ namespace SitemapGenerator.Writers
 
         private XmlTextWriter indexWriter;
         private string rootUrl;
-        private long serviceFieldSizeBytes = 300; //TODO
+        private long serviceFieldSizeBytes = 512;
         private object lockObject = new object();
         private bool disposed;
 
@@ -79,7 +72,9 @@ namespace SitemapGenerator.Writers
                 {
                 }
 
-                FinishWriteMap();
+                WriteCloseTags();
+                indexWriter.Flush();
+                indexWriter.Close();
                 disposed = true;
             }
         }

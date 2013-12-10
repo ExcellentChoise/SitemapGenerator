@@ -43,7 +43,8 @@
   <ItemGroup>
     <Compile Include="ChangeFrequency.cs" />
     <Compile Include="EnumSerializer.cs" />
-    <Compile Include="WritersFactory.cs" />
+    <Compile Include="ISitemapGenerator.cs" />
+    <Compile Include="StreaWritersFactory.cs" />
     <Compile Include="Writers\FileSitemapWriter.cs" />
     <Compile Include="Generator.cs" />
     <Compile Include="Url\IIndexUrl.cs" />

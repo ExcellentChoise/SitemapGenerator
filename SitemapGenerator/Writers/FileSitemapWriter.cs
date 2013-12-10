@@ -21,7 +21,7 @@ namespace SitemapGenerator.Writers
             return streamWriter.GetTotalEstimatedBytes();
         }
 
-        private IUrlWriter<TUrl> streamWriter;
+        private readonly IUrlWriter<TUrl> streamWriter;
         private bool disposed;
 
         public void Dispose()
