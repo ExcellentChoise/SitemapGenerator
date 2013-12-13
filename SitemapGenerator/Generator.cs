@@ -39,7 +39,6 @@ namespace SitemapGenerator
             if (sitemapWriter.GetTotalEstimatedBytes() >= maxSitemapSizeBytes || writtenUrlsCount >= maxUrlsCount)
             {
                 sitemapWriter.Dispose();
-                indexWriter.WriteLocation(new IndexUrlBase(DateTime.Now, currentFileName));
                 sitemapWriter = CreateNewWriter();
                 ++totalSitemapsCount;
             }
@@ -54,6 +53,7 @@ namespace SitemapGenerator
             currentFileName = fileName;
             string filePath = Path.Combine(baseDirPath, fileName);
             writtenUrlsCount = 0;
+            indexWriter.WriteLocation(new IndexUrlBase(DateTime.Now, currentFileName));
 
             return new FileSitemapWriter<ISitemapUrl>(filePath, rootUrl);
         }

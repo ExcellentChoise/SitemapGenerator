@@ -27,7 +27,7 @@ namespace SitemapGenerator.Writers
             lock (lockObject)
             {
                 indexWriter.WriteStartElement("sitemap");
-                indexWriter.WriteElementString("loc", rootUrl + "//" + indexUrl.Url);
+                indexWriter.WriteElementString("loc", rootUrl + "/" + indexUrl.Url);
                 indexWriter.WriteElementString("lastmod", indexUrl.LastModifyDate.ToString("yyyy-MM-dd"));
                 indexWriter.WriteEndElement();   
             }

@@ -25,7 +25,7 @@ namespace SitemapGenerator.Writers
 
         public void WriteLocation(ISitemapUrl siteMapUrl)
         {
-            string fullUrl = rootUrl + "//" + siteMapUrl.Url;
+            string fullUrl = rootUrl + "/" + siteMapUrl.Url;
             writer.WriteStartElement("url");
             writer.WriteElementString("loc", fullUrl);
             writer.WriteElementString("changefreq", EnumSerializer<ChangeFrequency>.ToString(siteMapUrl.FrequencyOfChange));
