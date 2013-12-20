@@ -17,6 +17,7 @@ namespace SitemapGenerator.Url
             FrequencyOfChange = frequencyOfChange;
             Priority = priority;
             Url = url;
+            LastModifyDate = DateTime.Now;
         }
 
         public SitemapUrl(string url, ChangeFrequency frequencyOfChange) : this(url, frequencyOfChange, 0.5m)
