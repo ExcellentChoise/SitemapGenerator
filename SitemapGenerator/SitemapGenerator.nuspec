@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ExcellentChoise.SitemapGenerator</id>
+    <version>1.0.0.0</version>
+    <authors>Pavel Karamyshev, Natalya Karamysheva</authors>
+    <projectUrl>https://github.com/ExcellentChoise/SitemapGenerator</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A small lib for generation of huge sitemaps with index file</description>
+    <tags>sitemap seo</tags>
+  </metadata>
+</package>
